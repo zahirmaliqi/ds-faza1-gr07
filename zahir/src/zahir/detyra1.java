@@ -20,10 +20,7 @@ public class detyra1 {
        System.out.println("Total:"+count);
        sc.close();
        }
-       
-	
-		
-	}
+}
 	
 	
 
