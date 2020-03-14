@@ -25,6 +25,7 @@ public class detyra1 {
     	   count1=0;
     	   for(j =0;j<sz;j++)
     	   {
+            if(s.charAt(i) != ' ') {
     	        if(j <i && str[i] == str[j]) {
     			   break;}
 		   
@@ -34,7 +35,7 @@ public class detyra1 {
     		  if(j==sz-1) {
     			   
     			   System.out.println(str[i]); }
-    	   }
+    	   }}
                            }
        sc.close();
        }
