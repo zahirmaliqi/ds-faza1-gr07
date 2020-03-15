@@ -34,7 +34,7 @@ public class detyra1 {
     		    
     		  if(j==sz-1) {
     			   
-    			   System.out.println(str[i]); }
+    			   System.out.println(str[i]+":"+count1+"("+count1*100/count+"%)"); }
     	   }}
                            }
        sc.close();
