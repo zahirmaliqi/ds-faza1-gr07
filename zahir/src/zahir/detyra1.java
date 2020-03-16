@@ -31,10 +31,10 @@ public class detyra1 {
 		   
     		 if(str[j] == str[i] ) {
     			   count1++;}
-    		    
+    		int p=count1*100/count;    
     		  if(j==sz-1) {
     			   
-    			   System.out.println(str[i]+":"+count1+"("+count1*100/count+"%)"); }
+    			   System.out.println(str[i]+":"+count1+"("+p+"%)"); }
     	   }}
                            }
        sc.close();
