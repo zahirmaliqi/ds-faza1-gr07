@@ -37,9 +37,10 @@ public class detyra1 {
                 return o2.getValue() - o1.getValue();
             }
         });
-                           }
-       sc.close();
-       }
+          for(Entry<Character,Integer> entry : list) {
+            System.out.println(entry.getKey() +": "+ entry.getValue());
+        }
+    }
 }
 	
 	
