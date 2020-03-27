@@ -17,6 +17,18 @@ public class detyra1 {
                count1++; }   
        }  
        System.out.println("Total:"+count1);
+		
+         HashMap<Character,Integer> counts = new HashMap<>();
+        for(char c : s.toCharArray()) {
+        	if(c != ' ') {
+        		Integer count = counts.get(c);
+                if (count == null) {
+                    count = 0;
+                }
+                counts.put(c, ++count);
+        	}
+            
+        }
 	char[] str=s.toCharArray();               
        int sz=str.length;
        int i=0,j=0,count1=0;
