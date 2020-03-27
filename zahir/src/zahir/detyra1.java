@@ -4,20 +4,19 @@ import java.util.Scanner;
 
 public class detyra1 {
 
-	public static void main(String[] args) {
-		String s; 
-		Scanner sc = new Scanner(System.in);
- 		System.out.print("Stringu:"); 
- 		 
- 		s = sc.nextLine();  
- 	   int count = 0;    
+	public static void main(String[] args)throws IOException
+	{
+		BufferedReader sc=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Stringu:");
+		String s = sc.readLine();
+	        int count1 = 0;    
        
        //Numeron totalin e karakterve perveq hapesires   
        for(int i = 0; i < s.length(); i++) {    
-           if(s.charAt(i) != ' ')    
-               count++;    
+           if(s.charAt(i) != ' ') {   
+               count1++; }   
        }  
-       System.out.println("Total:"+count);
+       System.out.println("Total:"+count1);
 	char[] str=s.toCharArray();               
        int sz=str.length;
        int i=0,j=0,count1=0;
