@@ -43,7 +43,7 @@ public class detyra1 {
             }
         });
           for(Entry<Character,Integer> entry : list) {
-            System.out.println(entry.getKey() +": "+ entry.getValue()+ " ("+entry.getValue()*100/count1+"%)" );
+             System.out.println(entry.getKey() +": "+ entry.getValue()+ " ("+entry.getValue()*100/count1+"%)" );
         }
     }
 }
