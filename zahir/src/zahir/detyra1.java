@@ -11,7 +11,7 @@ public class detyra1 {
 
 	public static void main(String[] args)throws IOException
 	{
-		BufferedReader sc=new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader sc=new BufferedReader(new InputStreamReader(new ByteArrayInputStream())));
 		System.out.println("Stringu:");
 		String s = sc.readLine();
 	        int count1 = 0;    
