@@ -48,6 +48,9 @@ public class detyra1 {
 		 for(Entry<Character,Integer> entry : list) {
 			 for(int j = 0; j<entry.getValue(); j++) {
 				 System.out.print(entry.getKey() + ": [");
+				 for(int i = 0; i<((entry.getValue()*100/count1)*26)/100; i++) {
+            		             System.out.print("#");
+            		                }
 				 	System.out.print("]");
             	                        System.out.println();
             	
