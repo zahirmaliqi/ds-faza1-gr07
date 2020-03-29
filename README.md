@@ -8,6 +8,6 @@ Pas instalimit shkojme me komanden java ds.java dhe shenojme argumentet
 ```java
 java ds.java <"four-square","frequency","vigenere">
 java ds.java  <"frequency", "text">
-java ds.java  <"four-square", encrypt, key1, key2  ,"plaintext|ciphertext">
+java ds.java  <"four-square", encrypt|decrypt, key1, key2  ,"plaintext|ciphertext">
 java ds.java  <"vigenere",encrypt|decrypt , KEY,"PLAINTEX|CIPHERTEXTT" >
 ```
