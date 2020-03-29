@@ -18,7 +18,7 @@
                       System.out.println("Argumenti i dyte duhet te jete mesazhi me gjatesi>0");
                       System.exit(0);
                       }
-                    FrequencyInspector frequencyInspector = new FrequencyInspector(args[1]);
+                    frequency frequencyInspector = new frequency(args[1]);
                     frequencyInspector.fillHashMap();
 		    }
 		     
