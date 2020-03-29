@@ -7,4 +7,6 @@ Pas instalimit shkojme me komanden java ds.java dhe shenojme argumentet
 
 ```java
 java ds.java <"four-square","frequency","vigenere">
+java ds.java  <"frequency", "text">
+java ds.java  <"four-square", encrypt, KEY1, KEY2 "PLAINTEXT">
 ```
