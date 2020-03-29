@@ -54,9 +54,25 @@ public class frequency{
             float percentage= ((float) entry.getValue() / mesazhi.length()) * 100;
             System.out.println(entry.getKey() + ": "+ entry.getValue()+" ("+percentage+"%)");
             }
-	
-	
+		
+	System.out.println("ASCII BAR-I");
+        
+	for (Entry<Character, Integer> entry : map.entrySet()){
+            float percentage= ((float) entry.getValue() / mesazhi.length()) * 100;
+            System.out.print(entry.getKey()+": [");
 
+            for(int i=0;i<mesazhi.length();i++){
+                  if(i<entry.getValue())
+		  {
+			  System.out.print("#");
+		  }
+                else 
+		{
+                    System.out.print(" ");
+                }
+	    }
+            System.out.println("] "+percentage+"%");
 
-
-
+        }
+    }
+}
