@@ -38,7 +38,31 @@ public class Vigenere {
 	
 	        System.out.println(String.valueOf(encryptedMsg));
 	    }
-	   
+	
+	   public void dekripto(){
+	        //Numeron totalin e karakterve
+	        char msg[] = text.toCharArray();
+	        int msglen = msg.length;
+	        int i, j;
+	
+	
+	        char key[] = new char[msglen];
+	        char decryptedMsg[] = new char[msglen];
+	        for (i = 0, j = 0; i < msglen; ++i, ++j) {
+	            if (j == qelsi.length()) {
+	                j = 0;
+	            }
+	            key[i] = qelsi.charAt(j);
+	        }
+	
+	        //Pi = (Ci – Ki + 26) mod 26
+	        for (i = 0; i < msglen; ++i) {
+	
+	            decryptedMsg[i] = (char) ((((msg[i] - key[i])+26) % 26) + 'A');
+	        }
+		   
+	        System.out.println(String.valueOf(decryptedMsg));
+
 	
 	    }
 	
