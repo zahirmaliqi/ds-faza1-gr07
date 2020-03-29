@@ -26,7 +26,6 @@ public class frequency{
             }
         }
        Map<Character,Integer> sortedMap=sortByComparator(letterFrequencyMap);
-
        printMap(sortedMap);
          }
 	
@@ -42,7 +41,19 @@ public class frequency{
 		    return o2.getValue().compareTo(o1.getValue());
             }
         });
-	
+	Map<Character, Integer> sortedMap = new LinkedHashMap<>();
+        for (Entry<Character, Integer> entry : list)
+        {sortedMap.put(entry.getKey(), entry.getValue());}
+	         return sortedMap;
+       }
+
+    
+	private  void printMap(Map<Character, Integer> map){
+        System.out.println("Total: "+mesazhi.length());
+           for (Entry<Character, Integer> entry : map.entrySet()){
+            float percentage= ((float) entry.getValue() / mesazhi.length()) * 100;
+            System.out.println(entry.getKey() + ": "+ entry.getValue()+" ("+percentage+"%)");
+            }
 	
 	
 
