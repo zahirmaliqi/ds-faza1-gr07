@@ -17,14 +17,9 @@ public class FourSquare {
     public  void EncDec() {
         char[][] plot = new char[3][25];
         char remove = 'q';
-
-
         // fshin duplikatet nga qelesi
         String filtered_key_1 = removeDuplicates(key1);
         String filtered_key_2 = removeDuplicates(key2);
-
-        
-
         plotAlphabets(plot[0], remove);
         plotKey(plot[1], filtered_key_1, remove);
         plotKey(plot[2], filtered_key_2, remove);
@@ -37,6 +32,7 @@ public class FourSquare {
         }
 
     }
+    
  private  void decrypt(char[][] plot, String encryptedText) {
         char[] pairs = new char[2];
         String plainText = "";
