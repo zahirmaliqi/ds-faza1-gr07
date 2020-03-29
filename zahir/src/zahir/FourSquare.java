@@ -46,3 +46,61 @@ public class FourSquare {
         }
 
         System.out.println("Pairs: " + Arrays.toString(pEncryptText));
+        
+            for (int i = 0; i < pEncryptText.length; i++) {
+            int column_a = 0;
+            int row_a = 0;
+            int column_b = 0;
+            int row_b = 0;
+
+            
+            pairs[0] = pEncryptText[i].charAt(0);
+            pairs[1] = pEncryptText[i].charAt(1);
+
+            
+            for (int j = 0; j < plot[0].length; j++) {
+               
+                if(pairs[0] == plot[1][j]) {
+                    //Gjene rreshtin dhe konverton ne 5X5
+                    row_a = (j / 5) * 5;
+                    // Kolona me mod te 5
+                    column_a = j % 5;
+                }
+
+                
+                if(pairs[1] == plot[2][j]) {
+                    row_b = (j / 5) * 5;
+                    column_b = j % 5;
+                }
+            }
+
+            
+            plainText += plot[0][row_a + column_b];
+            plainText += plot[0][row_b + column_a];  
+        }
+
+        
+        System.out.println("Decrypted Text: " + plainText);
+    }
+
+    private  void encrypt(char[][] plot, String plainText) {
+        char[] pairs = new char[2];
+        String encryptedText = "";
+        String[] pEncryptText = new String[plainText.length() / 2];
+
+        int cursor = 0;
+        for (int i = 0; i < pEncryptText.length; i++) {
+            pEncryptText[i] = "" + plainText.charAt(cursor) + plainText.charAt(cursor + 1);
+            // shtyhet per dy
+            cursor = cursor + 2;
+        }
+
+        
+        System.out.println("Pairs: " + Arrays.toString(pEncryptText));  
+     
+   
+     
+     
+     
+     
+     
