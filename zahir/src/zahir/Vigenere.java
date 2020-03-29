@@ -1,11 +1,11 @@
 package zahir;
 
-public class Vigenere {
+public class vigenere {
 	
 	    private final String qelsi;
 	    private final String text;
 	
-	    public Vigenere(String qelsi, String text) {
+	    public vigenere(String qelsi, String text) {
 	        this.qelsi=qelsi;
 	        this.text=text;
 	    }
