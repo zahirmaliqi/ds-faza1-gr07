@@ -205,6 +205,65 @@ public class FourSquare {
 
         }
     }
+    private static String removeDuplicates(String string) {
+        char[] characters = string.toCharArray();
+        String filterd = "";
+        for (int i = 0; i < characters.length; i++) {
+            
+            boolean isReapeated = false;
+            for (int j = 0; j < i; j++) {
+              
+                if(characters[i] == characters[j]) {
+                    isReapeated = true;
+                    break;
+                }
+            }
+
+            if(!isReapeated) { 
+                filterd += characters[i];
+            }
+        }
+        return filterd; 
+    }
+
+    private static void plotKey(char[] plot, String key, char remove) {
+        int cursor = 0;
+        char[] ckey = key.toCharArray();
+
+       
+        for (int i = 0; i < ckey.length; i++) {
+            plot[i] = ckey[i];
+        }
+
+        for (int i = ckey.length; i < plot.length; i++) {
+
+            if((char) ('a' + cursor) == remove) {
+                
+                cursor++;
+            }
+
+            int checks = 2;
+            for (int j = 0; j < checks; j++) {
+                for (int k = 0; k < ckey.length; k++) {
+               
+                    if(ckey[k] == (char) ('a' + cursor)) {
+                        cursor++;
+                        break;
+                    }
+                }
+            }
+
+            if((char) ('a' + cursor) == remove) {
+                
+                cursor++;
+            }
+
+            plot[i] = (char) ('a' + cursor);
+            cursor++;
+
+        }
+    }
+
 }
      
    
