@@ -21,6 +21,28 @@
                     frequency frequencyInspector = new frequency(args[1]);
                     frequencyInspector.fillHashMap();
 		    }
+		      
+		      
+		if (args[0].equals("four-square")){
+                  if(args.length!=5){
+                       System.out.println("Argumentet encrypt|decrypt <key1> <key2> <plaintext|ciphertext>");
+                       System.exit(0);
+		  }
+                 if(!args[1].equals("encrypt")&&!args[1].equals("decrypt")){
+                       System.out.println("Argumentet e lejuara  encrypt|decrypt");
+                       System.exit(0);
+                  }
+            switch (args[1]){
+                case "encrypt":
+                    FourSquare fourSquare=new FourSquare(args[2],args[3],args[4],true);
+                    fourSquare.EncDec();
+                    break;
+                case "decrypt":
+                    FourSquare fourSquare1=new FourSquare(args[2],args[3],args[4],false);
+                    fourSquare1.EncDec();
+                    break;
+                    }
+                  }
 		     
 		      
 		     if (args[0].equals("vigenere")) {
