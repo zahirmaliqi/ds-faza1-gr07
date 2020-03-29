@@ -31,6 +31,9 @@ public class Vigenere {
 	
 	        //Ci = (Pi + Ki) mod 26
 	        for (i = 0; i < msglen; ++i) {
+		     char p = text.charAt(i);
+		     if (p < 'A' || p > 'Z')
+	        	{continue;}
 	            encryptedMsg[i] = (char) (((msg[i] + key[i]) % 26) + 'A');
 	        }
 	
@@ -57,8 +60,10 @@ public class Vigenere {
 	
 	        //Pi = (Ci – Ki + 26) mod 26
 	        for (i = 0; i < msglen; ++i) {
-	
-	            decryptedMsg[i] = (char) ((((msg[i] - key[i])+26) % 26) + 'A');
+	           char p = text.charAt(i);
+	           if (p < 'A' || p > 'Z')
+	        	{continue;}
+                    decryptedMsg[i] = (char) ((((msg[i] - key[i])+26) % 26) + 'A');
 	        }
 		   
 	        System.out.println(String.valueOf(decryptedMsg));
