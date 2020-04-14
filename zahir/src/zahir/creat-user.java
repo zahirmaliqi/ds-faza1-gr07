@@ -11,7 +11,7 @@ public class creat-user{
     }
 
 	public  void file() {
-		
+		//Krijojm nja objekt File
 		File stockFile = new File("C:\\Users\\lenovo\\siguria\\"+emri+".xml");
 		File stockFile1 = new File("C:\\Users\\lenovo\\siguria\\"+emri+".pub.xml");
 
