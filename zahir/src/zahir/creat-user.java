@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class creat-user{
 	
     private final String emri;
