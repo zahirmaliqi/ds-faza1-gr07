@@ -1,3 +1,4 @@
+package zahir;
 import java.io.*;
 
 public class creat-user{
@@ -25,9 +26,8 @@ public class creat-user{
 		}
 
 		System.out.println("Eshte krijuar celsi privat \'keys/" + stockFile.getPath()+"\'");
-		;
 		System.out.println("Eshte krijuar celsi publik \'keys/" + stockFile1.getPath()+"\'");
-		;
+		
 
 		}
 
