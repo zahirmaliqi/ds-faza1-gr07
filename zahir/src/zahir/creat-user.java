@@ -8,27 +8,59 @@ public class creat-user{
 
     
     public creat-user(String emri_key) {
-    
-        this.emri_key=emri_key;
-       
-    }
+	  try {
 
-	public  void file() {
-		//Krijojm nja objekt File
-		File stockFile = new File("C:\\Users\\lenovo\\siguria\\"+emri+".xml");
-		File stockFile1 = new File("C:\\Users\\lenovo\\siguria\\"+emri+".pub.xml");
+		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
-		try {
-		    stockFile.createNewFile();
-		    stockFile1.createNewFile();
-		} catch (IOException ioe) {
-		     System.out.println("Error" + ioe);
-		}
+	
+		Document doc = docBuilder.newDocument();
+		Element rootElement = doc.createElement("RSA");
+		doc.appendChild(rootElement);
 
-		System.out.println("Eshte krijuar celsi privat \'keys/" + stockFile.getPath()+"\'");
-		System.out.println("Eshte krijuar celsi publik \'keys/" + stockFile1.getPath()+"\'");
+		
+		Element staff = doc.createElement("KeyValue");
+		rootElement.appendChild(staff);
+
+
+		
+		Element firstname = doc.createElement("Modulus");
+		firstname.appendChild(doc.createTextNode("kNfR475nkjmlk"));
+		staff.appendChild(firstname);
+
+		
+		Element lastname = doc.createElement("Exponent");
+		lastname.appendChild(doc.createTextNode("+EZth9RIOMMMF"));
+		staff.appendChild(lastname);
+
+		
+		Element nickname = doc.createElement("P");
+		nickname.appendChild(doc.createTextNode("zG6WRRR+_AAA"));
+		staff.appendChild(nickname);
+
+		
+		Element salary = doc.createElement("InverseQ");
+		salary.appendChild(doc.createTextNode("kX+VisjsjjTYJ"));
+		staff.appendChild(salary);
+
+		
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		DOMSource source = new DOMSource(doc);
+		StreamResult result = new StreamResult(new File("C:\\Users\\lenovo\\siguria\\"+emri_key+".xml"));
 		
 
-		}
+	
 
+		transformer.transform(source, result);
+		
+
+		System.out.println("Eshte krijuar celesi privat \' keys/"+emri_key+".xml\'");
+		
+	  } catch (ParserConfigurationException pce) {
+		pce.printStackTrace();
+	  } catch (TransformerException tfe) {
+		tfe.printStackTrace();
+	  }
+	}
 }
