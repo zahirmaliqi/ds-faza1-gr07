@@ -12,12 +12,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class creat-user{
-	
-    private final String emri_key;
+      private final String emri_key;
   
+      public creat-user(String emri_key)
+      {
+         this.emri_key=emri_key;
+      }
 
-    
-    public creat-user(String emri_key) {
+	public  void file() {
 	  try {
 
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
