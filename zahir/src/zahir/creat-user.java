@@ -70,6 +70,7 @@ public class creat-user{
 		
 
 		System.out.println("Eshte krijuar celesi privat \' keys/"+emri_key+".xml\'");
+		System.out.println("Eshte krijuar celesi publik \' keys/"+emri_key+".pub.xml\'");
 		
 	  } catch (ParserConfigurationException pce) {
 		pce.printStackTrace();
