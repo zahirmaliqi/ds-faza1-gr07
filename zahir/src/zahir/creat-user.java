@@ -60,11 +60,13 @@ public class creat-user{
 		Transformer transformer = transformerFactory.newTransformer();
 		DOMSource source = new DOMSource(doc);
 		StreamResult result = new StreamResult(new File("C:\\Users\\lenovo\\siguria\\"+emri_key+".xml"));
+		StreamResult result1 = new StreamResult(new File("C:\\Users\\lenovo\\siguria\\"+emri_key+".pub.xml"));
 		
 
 	
 
 		transformer.transform(source, result);
+		transformer.transform(source, result1);
 		
 
 		System.out.println("Eshte krijuar celesi privat \' keys/"+emri_key+".xml\'");
