@@ -54,6 +54,13 @@ public class creat-user{
 		Element salary = doc.createElement("InverseQ");
 		salary.appendChild(doc.createTextNode("kX+VisjsjjTYJ"));
 		staff.appendChild(salary);
+		  
+		   static String getPrivateKeyAsXml(PrivateKey privateKey) throws Exception{
+        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
+        RSAPrivateCrtKeySpec spec = keyFactory.getKeySpec(privateKey, RSAPrivateCrtKeySpec.class);
+        StringBuilder sb = new StringBuilder();
+
+        
 
 		
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
