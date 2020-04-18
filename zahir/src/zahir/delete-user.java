@@ -13,6 +13,7 @@ public class delete-user{
     	try{
     		
     		File file = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+emri_key+".xml");
+            File file1 = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+emri_key+".pub.xml");
     		
         	
     		if(file.delete()){
