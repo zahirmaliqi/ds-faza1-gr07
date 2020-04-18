@@ -1,3 +1,4 @@
+package zahir;
 import java.io.File;
 
 public class delete-user{
