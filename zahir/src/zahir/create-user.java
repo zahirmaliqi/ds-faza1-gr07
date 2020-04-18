@@ -33,11 +33,11 @@ public class create-user{
 
        
         String privateKeyAsXml = getPrivateKeyAsXml(privateKey);
-        System.out.println("Eshte krijuar celesi privat \'keys/" +XML_PRIVATE_FILENAME+".xml/'");
+        System.out.println("Eshte krijuar celesi privat \'keys/" +XML_PRIVATE_FILENAME+".xml\'");
         writeFile(privateKeyAsXml, XML_PRIVATE_FILENAME+".xml");
 
         String publicKeyAsXml = getPublicKeyAsXml(publicKey);
-        System.out.print("Eshte krijuar celesi publik \'keys/"  + XML_PRIVATE_FILENAME+".pub.xml/'");
+        System.out.print("Eshte krijuar celesi publik \'keys/"  + XML_PRIVATE_FILENAME+".pub.xml\'");
         writeFile(publicKeyAsXml, XML_PRIVATE_FILENAME+".pub.xml");
 
        
