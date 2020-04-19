@@ -19,8 +19,13 @@ public class delete-user{
     		if(file.delete() && file1.delete()){
     			System.out.println("Eshte larguar celesi privat \'keys"+file.getName()+"\'");
     			System.out.println("Eshte larguar celesi publik \'keys"+file1.getName()+"\'");
-    		}else{
-    			System.out.println("Delete operation is failed.");
+    		}else if(file.delete()){
+    			System.out.println("Eshte larguar celesi privat \'keys /"+file.getName()+"\'");
+    	
+    		}else if(file1.delete()) {
+    			
+    			System.out.println("Eshte larguar celesi publik \'keys / "+file1.getName()+"\'");
+    			
     		}
     	   
     	}catch(Exception e){
