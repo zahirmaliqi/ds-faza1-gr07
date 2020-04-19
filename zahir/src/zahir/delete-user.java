@@ -26,6 +26,8 @@ public class delete-user{
     			
     			System.out.println("Eshte larguar celesi publik \'keys / "+file1.getName()+"\'");
     			
+    		}else {
+    			System.out.println("Gabim: Celesi \'"+emri_key+"\' nuk ekziston.");
     		}
     	   
     	}catch(Exception e){
