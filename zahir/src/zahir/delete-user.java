@@ -16,8 +16,9 @@ public class delete-user{
             File file1 = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+emri_key+".pub.xml");
     		
         	
-    		if(file.delete()){
-    			System.out.println(file.getName() + " is deleted!");
+    		if(file.delete() && file1.delete()){
+    			System.out.println("Eshte larguar celesi privat \'keys"+file.getName()+"\'");
+    			System.out.println("Eshte larguar celesi publik \'keys"+file1.getName()+"\'");
     		}else{
     			System.out.println("Delete operation is failed.");
     		}
