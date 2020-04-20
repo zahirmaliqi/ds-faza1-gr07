@@ -38,7 +38,7 @@ public class excport{
   public  void mungon_argumentipriv() throws ParserConfigurationException, SAXException, IOException {
             
             // our XML file for this exampl
-            File xmlFile1 = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\");
+            File xmlFile1 = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+emri_key+".xml");
             
             if (xmlFile1.exists()) {
             Reader fileReader = new FileReader(xmlFile1);
