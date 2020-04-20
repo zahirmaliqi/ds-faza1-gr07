@@ -35,7 +35,7 @@ public class excport{
         
         bufReader.close();}
     }
-  public  void mungon_argumenti() throws ParserConfigurationException, SAXException, IOException {
+  public  void mungon_argumentipriv() throws ParserConfigurationException, SAXException, IOException {
             
             // our XML file for this exampl
             File xmlFile1 = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\");
