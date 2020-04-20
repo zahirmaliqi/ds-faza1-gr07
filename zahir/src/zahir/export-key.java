@@ -34,9 +34,27 @@ public class excport{
         System.out.println(xml2String);
         
         bufReader.close();}
-    
-    
     }
+  public  void mungon_argumenti() throws ParserConfigurationException, SAXException, IOException {
+            
+            // our XML file for this exampl
+            File xmlFile1 = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\");
+            
+            if (xmlFile1.exists()) {
+            Reader fileReader = new FileReader(xmlFile1);
+            BufferedReader bufReader = new BufferedReader(fileReader);
+            
+            StringBuilder sb = new StringBuilder();
+            String line = bufReader.readLine();
+            while( line != null){
+                sb.append(line).append("\n");
+                line = bufReader.readLine();
+            }
+            String xml2String = sb.toString();
+            System.out.println(xml2String);
+            
+            bufReader.close();}
+            }
        
               
 }
