@@ -74,6 +74,8 @@
 			 if (args[1].contains(" ")) {
 			     System.out.println("Nuk lejohen hapesirat");
 			     System.exit(0);}
+			creat createt = new creat(args[1]);
+	 		createt.file();
                          }
 	             }
 	
