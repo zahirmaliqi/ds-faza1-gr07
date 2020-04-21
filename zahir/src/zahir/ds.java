@@ -71,6 +71,9 @@
 	 		    System.out.println("Argumentet emri");
 	 		    System.exit(0);
 	 		    }
+			 if (args[1].contains(" ")) {
+			     System.out.println("Nuk lejohen hapesirat");
+			     System.exit(0);}
                          }
 	             }
 	
