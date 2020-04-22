@@ -91,6 +91,30 @@ public class excport{
     		out.close();
     		System.out.println("Celesi privat u ruajt ne fajllin \'"+emri_i_file);
     	}
-       
+               public  void ex_compub() throws IOException {
+     
+                
+    		File fin = new File(source);
+    		FileInputStream fis = new FileInputStream(fin);
+    		BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+     
+    		FileWriter fstream = new FileWriter(dest, true);
+    		BufferedWriter out = new BufferedWriter(fstream);
+     
+    		String aLine = null;
+    		while ((aLine = in.readLine()) != null) {
+    			//Process each line and add output to Dest.txt file
+    			out.write(aLine);
+    			out.newLine();
+    		}
+     
+ 
+    		in.close();
+            out.close();
+    		System.out.println("Celesi publik u ruajt ne fajllin \'"+emri_i_file);
+    	}
+
+
+
               
 }
