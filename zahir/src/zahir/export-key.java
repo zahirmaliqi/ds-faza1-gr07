@@ -91,7 +91,14 @@ public class excport{
     		out.close();
     		System.out.println("Celesi privat u ruajt ne fajllin \'"+emri_i_file);
     	}
-               public  void ex_compub() throws IOException {
+     
+     public  void ex_compub() throws IOException {
+      
+      File dir = new File("C:\\Users\\lenovo\\eclipse-workspace\\final");
+     
+    		String source = dir.getCanonicalPath() + File.separator +emri_key+".pub.xml";
+    		String dest = dir.getCanonicalPath() + File.separator + emri_i_file;
+     
      
                 
     		File fin = new File(source);
