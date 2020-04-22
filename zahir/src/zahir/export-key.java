@@ -8,9 +8,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 public class excport{
     private final String emri_key;
+    private final String emri_i_file;
    
-    public excport(String emri_key) {
+    public excport(String emri_key,String emri_i_file) {
         this.emri_key=emri_key;
+        this.emri_i_file=emri_i_file;
     }
 
 
@@ -34,6 +36,9 @@ public class excport{
         System.out.println(xml2String);
         
         bufReader.close();}
+        else {
+        	System.out.println("Gabim :Celesi publik\'"+emri_key+"\'nuk ekziston");
+        }
     }
   public  void mungon_argumentipriv() throws ParserConfigurationException, SAXException, IOException {
             
@@ -54,6 +59,9 @@ public class excport{
             System.out.println(xml2String);
             
             bufReader.close();}
+             else {
+            	System.out.println("Gabim :Celesi private\'"+emri_key+"\'nuk ekziston");
+            }
             }
        
               
