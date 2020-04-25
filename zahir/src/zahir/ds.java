@@ -9,7 +9,7 @@
 	            }
 		      
 	        if (!args[0].equals("frequency")&&!args[0].equals("four-square")&&!args[0].equals("vigenere")&&!args[0].equals("create-user")
-		   ){
+		    &&!args[0].equals("delete-user") ){
 	            System.out.println("Vlerat e lejuara jane [frequency,four-square,vigenere]");
 	            System.exit(0);
 	            }
