@@ -77,6 +77,16 @@
 			creat createt = new creat(args[1]);
 	 		createt.file();
                          }
+		      if (args[0].equals("delete-user")) {
+		 		if (args.length != 2) {
+		 		    System.out.println("Argumentet emri");
+		 		    System.exit(0);
+		 		    }
+		 		
+		 		
+		      
+		      
+		      
 	             }
 	
 	}
