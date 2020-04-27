@@ -47,6 +47,33 @@ public class import1{
 		out.close();
 		System.out.println("Celesi publik u ruajt ne fajllin \'keys/"+emri_i_file+".pub.xml\'.");
 	}
+	public  void importkeypriv() throws IOException {
+    	File dir = new File("C:\\Users\\lenovo\\eclipse-workspace\\final");
+ 
+    	String source = dir.getCanonicalPath() + File.separator + emri_i_file;
+		String dest = dir.getCanonicalPath() + File.separator + emri_key+".xml";
+ 
+		File fin = new File(source);
+		FileInputStream fis = new FileInputStream(fin);
+		BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+ 
+		FileWriter fstream = new FileWriter(dest, true);
+		BufferedWriter out = new BufferedWriter(fstream);
+ 
+		String aLine = null;
+		while ((aLine = in.readLine()) != null) {
+		
+			out.write(aLine);
+			out.newLine();
+		}
+ 
+		
+		in.close();
+ 
+		
+		out.close();
+		System.out.println("Celesi privat u ruajt ne fajllin \'keys/"+emri_key+".xml\'");
+	}
     
 
 }
