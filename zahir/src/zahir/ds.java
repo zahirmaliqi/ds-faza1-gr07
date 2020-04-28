@@ -77,6 +77,8 @@
 			creat createt = new creat(args[1]);
 	 		createt.file();
                          }
+		      
+		      
 		      if (args[0].equals("delete-user")) {
 		 		if (args.length != 2) {
 		 		    System.out.println("Argumentet emri");
@@ -91,11 +93,40 @@
 		 	
 		 		
 		 	                 }
+		      
+		      if (args[0].equals("export-user")) {
+		 		if (args.length == 3) {
+		 	        excport exc=new excport(args[2], null);
+		       switch (args[1]){
+		 	    case "public":
+		                exc.mungon_argumentipub();
+		                break;
+		            case "private":
+		               exc.mungon_argumentipriv();
+		               break;
+		           }
+		 		System.exit(0);
+		 		}
+		        if (args.length == 4) {
+		 	       excport exc1=new excport(args[2],args[3]);
+		 	switch (args[1]){
+		 	    case "public":
+		               exc1.ex_compub();
+		               break;
+		           case "private":
+		               exc1.ex_compriv();
+		               break;
+		               }
+		 		    System.exit(0);
+		 	      }
 		 		
+		 		if(args.length != 4 || args.length != 3)
+		 		{
+		 			System.out.println("Argumenti <public|private> <name> [file]");
+		 			System.exit(0);
+		 		}
+		        }
 		 		
-		      
-		      
-		      
-	             }
+                }
 	
 	}
