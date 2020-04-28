@@ -101,6 +101,34 @@ public class import1{
 		out.close();
 		System.out.println("Celesi publik u ruajt ne fajllin \'keys/"+emri_key+".pub.xml\'");
 	}
+	
+	    public  void st_http() throws Exception {
+        OutputStream out = new FileOutputStream("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+emri_key+".pub.xml");
+
+        URL url = new URL(emri_i_file);
+        URLConnection conn = url.openConnection();
+        conn.connect();
+        InputStream is = conn.getInputStream();
+
+        copy(is, out);
+        is.close();
+        out.close();
+    System.out.println("Celesi publik u ruajt ne fajllin \'keys/"+emri_key+".pub.xml\'.");
+        
+    }
+
+    private static void copy(InputStream from, OutputStream to) throws IOException {
+        byte[] buffer = new byte[4096];
+        while (true) {
+            int numBytes = from.read(buffer);
+            if (numBytes == -1) {
+                break;
+            }
+            to.write(buffer, 0, numBytes);
+        }
+
+
+}
     
 
 }
