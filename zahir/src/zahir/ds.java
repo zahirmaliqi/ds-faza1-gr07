@@ -126,7 +126,17 @@
 		 			System.exit(0);
 		 		}
 		        }
+		      
+		      
+		      if (args[0].equals("import-key")) {
+		 		if (args.length != 3) {
+		 		    System.out.println("Argumentet import-key <name> <path>");
+		 		    System.exit(0);
+		 		    }
+		 	
+	     
+		   }
 		 		
-                }
+               }
 	
 	}
