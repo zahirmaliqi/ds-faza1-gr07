@@ -133,7 +133,20 @@
 		 		    System.out.println("Argumentet import-key <name> <path>");
 		 		    System.exit(0);
 		 		    }
-		 	
+			      
+			      if (args.length == 3) {
+		 			import1 imp=new import1(args[1],args[2]);
+		 			if(args[2].endsWith(".pub.xml"))
+		 			{
+		 				imp.importkeypub();
+		 				
+		 			}else (args[2].endsWith(".xml"))
+		 			{
+		 				imp.importkeypriv();
+	 				    imp.importkeypriv1();
+	 				
+		 			
+		 			}
 	     
 		   }
 		 		
