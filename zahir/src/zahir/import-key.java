@@ -23,6 +23,14 @@ public class import1{
     public  void importkeypub() throws IOException {
 		
 		File dir1 = new File("C:\\Users\\lenovo\\eclipse-workspace\\final");
+	        File  Ex_file= new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+ emri_key+".pub.xml");
+		
+ 
+		if(Ex_file.exists())
+		{
+			System.out.println("Gabim: Celesi \'"+emri_key+"\' ekziston paraprakisht.");
+			
+		}else {
  
 		
 		String source = dir1.getCanonicalPath() + File.separator + emri_i_file;
@@ -46,11 +54,20 @@ public class import1{
 		in.close();
 		out.close();
 		System.out.println("Celesi publik u ruajt ne fajllin \'keys/"+emri_i_file+".pub.xml\'.");
-	}
+	       }
+    }
+	    
 	public  void importkeypriv() throws IOException {
     	File dir = new File("C:\\Users\\lenovo\\eclipse-workspace\\final");
+        File  Ex_file= new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+ emri_key+".xml");
  
-    	String source = dir.getCanonicalPath() + File.separator + emri_i_file;
+    	if(Ex_file.exists())
+	{
+	        System.out.println("Gabim: Celesi priv \'"+emri_key+"\' ekziston paraprakisht.");
+			
+	}else {
+ 
+    	       String source = dir.getCanonicalPath() + File.separator + emri_i_file;
 		String dest = dir.getCanonicalPath() + File.separator + emri_key+".xml";
  
 		File fin = new File(source);
@@ -73,11 +90,20 @@ public class import1{
 		
 		out.close();
 		System.out.println("Celesi privat u ruajt ne fajllin \'keys/"+emri_key+".xml\'");
+	       }
 	}
+		
 	public  void importkeypriv1() throws IOException {
     	File dir = new File("C:\\Users\\lenovo\\eclipse-workspace\\final");
+	File  Ex_file= new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+ emri_key+".pub.xml");
+    	 
+    	if(Ex_file.exists())
+	{
+		System.out.println("Gabim: Celesi pub \'"+emri_key+"\' ekziston paraprakisht.");
+			
+	}else {
  
-    	String source = dir.getCanonicalPath() + File.separator + emri_i_file;
+    	        String source = dir.getCanonicalPath() + File.separator + emri_i_file;
 		String dest = dir.getCanonicalPath() + File.separator + emri_key+".pub.xml";
  
 		File fin = new File(source);
@@ -100,6 +126,7 @@ public class import1{
 		
 		out.close();
 		System.out.println("Celesi publik u ruajt ne fajllin \'keys/"+emri_key+".pub.xml\'");
+	       }
 	}
 	
 	    public  void st_http() throws Exception {
