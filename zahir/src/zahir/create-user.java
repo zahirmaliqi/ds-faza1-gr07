@@ -25,13 +25,17 @@ public class create-user{
 
 
     public  void file() throws Exception {
+        File xmlFile = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+XML_PRIVATE_FILENAME+".pub.xml");
 
        
         KeyPair keyPair = createKeyPair(KEY_LENGTH);
         PrivateKey privateKey = keyPair.getPrivate();
         PublicKey publicKey = keyPair.getPublic();
+        
 
-       
+        if(xmlFile.exists()) {
+        	System.out.println("Gabim: Celesi \'"+XML_PRIVATE_FILENAME +"\' ekziston paraprakisht.");
+        }else {
         String privateKeyAsXml = getPrivateKeyAsXml(privateKey);
         System.out.println("Eshte krijuar celesi privat \'keys/" +XML_PRIVATE_FILENAME+".xml\'");
         writeFile(privateKeyAsXml, XML_PRIVATE_FILENAME+".xml");
@@ -39,8 +43,8 @@ public class create-user{
         String publicKeyAsXml = getPublicKeyAsXml(publicKey);
         System.out.print("Eshte krijuar celesi publik \'keys/"  + XML_PRIVATE_FILENAME+".pub.xml\'");
         writeFile(publicKeyAsXml, XML_PRIVATE_FILENAME+".pub.xml");
-
-       
+        }
+        
     }
 
     static KeyPair createKeyPair(int keyLength) throws NoSuchAlgorithmException {
