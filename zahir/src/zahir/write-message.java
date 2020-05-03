@@ -71,6 +71,35 @@ public class writemessage{
        
          
     }
+	
+	public void ruaje() throws Exception{
+    	String originalInput = emri_i_perdoruesit;
+    	String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
+    	
+    	Random random = ThreadLocalRandom.current();
+		byte[] randomBytes = new byte[8];
+		random.nextBytes(randomBytes);
+		String encoded = Base64.getUrlEncoder().encodeToString(randomBytes);
+		Random random1 = ThreadLocalRandom.current();
+		byte[] randomBytes1 = new byte[8];
+		random1.nextBytes(randomBytes1);
+		String key1= Base64.getUrlEncoder().encodeToString(randomBytes1);
+        String ciphertext = encrypt(key1,text);
+        String decrypted = decrypt(key1, ciphertext.trim());
+        String encrypted = encrypt(key1, decrypted.trim());
+        String zahir=encodedString+"."+encoded+"."+encrypted;
+        
+       
+    String path = "C:\\Users\\lenovo\\eclipse-workspace\\final\\"+ file+".txt";
+
+    try {
+        Files.writeString(Paths.get(path), zahir);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    System.out.println("Mesazhi i enkriptuar u ruajt ne fajllin \'"+file+"\'.");
+    }
 		
         
        
