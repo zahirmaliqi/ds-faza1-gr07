@@ -100,6 +100,17 @@ public class writemessage{
     }
     System.out.println("Mesazhi i enkriptuar u ruajt ne fajllin \'"+file+"\'.");
     }
+	
+	public static String encrypt(String key1, String text)
+	            throws GeneralSecurityException {
+	        DESKeySpec desKeySpec = new DESKeySpec(key1.getBytes(StandardCharsets.UTF_8));
+	        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("DES");
+	        SecretKey secretKey = secretKeyFactory.generateSecret(desKeySpec);
+	        byte[] dataBytes = text.getBytes(StandardCharsets.UTF_8);
+	        Cipher cipher = Cipher.getInstance("DES");
+	        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+	        return Base64.getEncoder().encodeToString(cipher.doFinal(dataBytes));
+	    }
 		
         
        
