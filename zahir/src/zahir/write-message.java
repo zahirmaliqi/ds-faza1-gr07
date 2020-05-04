@@ -111,6 +111,20 @@ public class writemessage{
 	        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 	        return Base64.getEncoder().encodeToString(cipher.doFinal(dataBytes));
 	    }
+	
+	 public static String decrypt(String key1, String text)
+	            throws GeneralSecurityException {
+	        byte[] dataBytes = Base64.getDecoder().decode(text);
+	        DESKeySpec desKeySpec = new DESKeySpec(key1.getBytes(StandardCharsets.UTF_8));
+	        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("DES");
+	        SecretKey secretKey = secretKeyFactory.generateSecret(desKeySpec);
+	        Cipher cipher = Cipher.getInstance("DES");
+	        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+	        byte[] dataBytesDecrypted = (cipher.doFinal(dataBytes));
+	        return new String(dataBytesDecrypted);
+	    }
+ 
+}
 		
         
        
