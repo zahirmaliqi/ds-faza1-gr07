@@ -149,6 +149,26 @@
 		 			}
 	     
 		   }
+			      
+			       if (args[0].equals("write-message")) {
+	    		if (args.length == 3) {
+		 			writemessage Wm=new writemessage(args[1], args[2],null);
+		 			Wm.enc();
+		 		        System.exit(0);
+		 		               }
+	    		
+	    		if (args.length == 4) {
+		 			writemessage Wm=new writemessage(args[1], args[2],args[3]);
+		 			Wm.ruaje();
+		 		        System.exit(0);
+		 		                 }
+	    		
+	    		if(args.length != 4 || args.length != 3)
+		 		{
+		 			System.out.println("Argumenti <name> <message> [file]");
+		 			System.exit(0);
+		 		}
+		 	 }
 		 		
                }
 	
