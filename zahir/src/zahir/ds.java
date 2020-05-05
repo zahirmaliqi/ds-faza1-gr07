@@ -9,8 +9,9 @@
 	            }
 		      
 	        if (!args[0].equals("frequency")&&!args[0].equals("four-square")&&!args[0].equals("vigenere")&&!args[0].equals("create-user")
-		    &&!args[0].equals("delete-user") ){
-	            System.out.println("Vlerat e lejuara jane [frequency,four-square,vigenere]");
+		    &&!args[0].equals("delete-user")&&!args[0].equals("export-key")&&!args[0].equals("import-key")&&!args[0].equals("write-message") 
+		   &&!args[0].equals("read-message") ){
+	            System.out.println("Vlerat e lejuara jane [frequency,four-square,vigenere,create-user,delete-user,export-key,import-key,read-message,write-message]");
 	            System.exit(0);
 	            }
 		      
@@ -66,14 +67,15 @@
 			                }
 		                 }
 		      
-		       if (args[0].equals("create-user")) {
+		   if (args[0].equals("create-user")) {
 	 		if (args.length != 2) {
 	 		    System.out.println("Argumentet emri");
 	 		    System.exit(0);
 	 		    }
 			 if (args[1].contains(" ")) {
 			     System.out.println("Nuk lejohen hapesirat");
-			     System.exit(0);}
+			     System.exit(0);
+			    }
 			creat createt = new creat(args[1]);
 	 		createt.file();
                          }
@@ -86,18 +88,16 @@
 		 		    }
 			      if (args[1].contains(" ")) {
 				     System.out.println("Nuk lejohen hapesirat");
-				     System.exit(0);}
+				     System.exit(0);
+			          }
 		 		delete del = new delete(args[1]);
 		 		del.delete_file();
-		 		
-		 	
-		 		
-		 	                 }
+		 	   }
 		      
-		      if (args[0].equals("export-user")) {
-		 		if (args.length == 3) {
-		 	        excport exc=new excport(args[2], null);
-		       switch (args[1]){
+		      if (args[0].equals("export-key")) {
+		 	 if (args.length == 3) {
+		 	             excport exc=new excport(args[2], null);
+		        switch (args[1]){
 		 	    case "public":
 		                exc.mungon_argumentipub();
 		                break;
@@ -105,8 +105,8 @@
 		               exc.mungon_argumentipriv();
 		               break;
 		           }
-		 		System.exit(0);
-		 		}
+		 	    System.exit(0);
+		       }
 		        if (args.length == 4) {
 		 	       excport exc1=new excport(args[2],args[3]);
 		 	switch (args[1]){
@@ -117,10 +117,10 @@
 		               exc1.ex_compriv();
 		               break;
 		               }
-		 		    System.exit(0);
-		 	      }
+		 		 System.exit(0);
+		 	     }
 		 		
-		 		if(args.length != 4 || args.length != 3)
+		 	  if(args.length != 4 || args.length != 3)
 		 		{
 		 			System.out.println("Argumenti <public|private> <name> [file]");
 		 			System.exit(0);
@@ -144,13 +144,11 @@
 		 			{
 		 				imp.importkeypriv();
 	 				    imp.importkeypriv1();
-	 				
-		 			
 		 			}
 	     
-		   }
+		               }
 			      
-			       if (args[0].equals("write-message")) {
+	         if (args[0].equals("write-message")) {
 	    		if (args.length == 3) {
 		 			writemessage Wm=new writemessage(args[1], args[2],null);
 		 			Wm.enc();
@@ -169,7 +167,25 @@
 		 			System.exit(0);
 		 		}
 		 	 }
+			      
+			      
+	       if (args[0].equals("read-message")) {
+	    	     if(args.length == 2) {
+	    	         readmessage read = new readmessage(args[1]);
+	    	            if(args[1].endsWith(".txt")) {
+	    	    	        read.txtfile();  
+	    	             }else {
+	    	    	        read.decry();
+	    	              }
+	    	              System.exit(0);
+		 	   }
+	    	     if(args.length != 2)
+		 		{
+		 			System.out.println("Argumenti <encrypted-message>");
+		 			System.exit(0);
+		 		}
+	            }
 		 		
-               }
+             }
 	
-	}
+   }
