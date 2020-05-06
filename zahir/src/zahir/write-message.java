@@ -88,7 +88,6 @@ public class writemessage{
         String ciphertext = encrypt(key1,text);
         String decrypted = decrypt(key1, ciphertext.trim());
         String encrypted = encrypt(key1, decrypted.trim());
-        String zahir=encodedString+"."+encoded+"."+encrypted;
 		Reader fileReader = new FileReader(xmlFile);
         BufferedReader bufReader = new BufferedReader(fileReader);
         
