@@ -41,22 +41,26 @@ import javax.crypto.spec.DESKeySpec;
         String fjla = data.replace(".", ",");
         String[] p = fjla.split(",");
         String p1 = p[0]; 
-        String p2 = p[1];
-        String p3 = p[2];
-        String p4=parts[3];
+        String p4=p[3];
         
   
         byte[] decodedBytes1 = Base64.getDecoder().decode(p1);
         String decodedString1 = new String(decodedBytes1);
         System.out.println("Marresi:"+decodedString1);
-        Random random1 = ThreadLocalRandom.current();
-		byte[] randomBytes1 = new byte[8];
-		random1.nextBytes(randomBytes1);
-		String key1= Base64.getUrlEncoder().encodeToString(randomBytes1);
-        String ciphertext = encrypt(key1,p4);
+        //Random random1 = ThreadLocalRandom.current();
+	//byte[] randomBytes1 = new byte[8];
+	//random1.nextBytes(randomBytes1);
+	//String key1= Base64.getUrlEncoder().encodeToString(randomBytes1);
+	String key1 = "zahirzah";
+	String ciphertext = encrypt(key1,p4);
+        String plaintext = decrypt(key1, p4);
         String decrypted = decrypt(key1, ciphertext.trim());
         String encrypted = encrypt(key1, decrypted.trim());
-        System.out.println("Mesazhi:"+decrypted);
+        if (ciphertext.contentEquals(encrypted.trim())) {
+        	System.out.println("Mesazhi:"+plaintext);
+        } else {
+            System.out.println("wrong key!");
+        }
         
          
   
