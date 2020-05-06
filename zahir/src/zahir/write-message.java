@@ -80,15 +80,29 @@ public class writemessage{
 		byte[] randomBytes = new byte[8];
 		random.nextBytes(randomBytes);
 		String encoded = Base64.getUrlEncoder().encodeToString(randomBytes);
-		Random random1 = ThreadLocalRandom.current();
-		byte[] randomBytes1 = new byte[8];
-		random1.nextBytes(randomBytes1);
-		String key1= Base64.getUrlEncoder().encodeToString(randomBytes1);
+		//Random random1 = ThreadLocalRandom.current();
+		//byte[] randomBytes1 = new byte[8];
+		//random1.nextBytes(randomBytes1);
+		//String key1= Base64.getUrlEncoder().encodeToString(randomBytes1);
+		String key1 = "zahirzah";
         String ciphertext = encrypt(key1,text);
         String decrypted = decrypt(key1, ciphertext.trim());
         String encrypted = encrypt(key1, decrypted.trim());
         String zahir=encodedString+"."+encoded+"."+encrypted;
+		Reader fileReader = new FileReader(xmlFile);
+        BufferedReader bufReader = new BufferedReader(fileReader);
         
+        StringBuilder sb = new StringBuilder();
+        String line = bufReader.readLine();
+        while( line != null){
+            sb.append(line).append("");
+            line = bufReader.readLine();
+        }
+        String xml2String = sb.toString();
+        xml2String = xml2String.replaceAll("\\<.*?\\>", "");
+        bufReader.close();
+        String zahir=encodedString+"."+encoded+"."+ xml2String+"."+encrypted;
+   
        
     String path = "C:\\Users\\lenovo\\eclipse-workspace\\final\\"+ file+".txt";
 
