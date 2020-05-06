@@ -107,7 +107,7 @@ import javax.crypto.spec.DESKeySpec;
 
 		
   
-  public static String encrypt(String key1, String part4)
+  public static String encrypt(String key1, String part)
           throws GeneralSecurityException {
       DESKeySpec desKeySpec = new DESKeySpec(key1.getBytes(StandardCharsets.UTF_8));
       SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("DES");
@@ -118,9 +118,9 @@ import javax.crypto.spec.DESKeySpec;
       return Base64.getEncoder().encodeToString(cipher.doFinal(dataBytes));
   }
 
-  public static String decrypt(String key1, String part4)
+  public static String decrypt(String key1, String part)
           throws GeneralSecurityException {
-      byte[] dataBytes = Base64.getDecoder().decode(part4);
+      byte[] dataBytes = Base64.getDecoder().decode(part);
       DESKeySpec desKeySpec = new DESKeySpec(key1.getBytes(StandardCharsets.UTF_8));
       SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("DES");
       SecretKey secretKey = secretKeyFactory.generateSecret(desKeySpec);
