@@ -4,13 +4,15 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import javax.xml.parsers.ParserConfigurationException;
-import org.xml.sax.SAXException;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
 
 public class import1{
     private final String emri_key;
@@ -53,7 +55,7 @@ public class import1{
 		
 		in.close();
 		out.close();
-		System.out.println("Celesi publik u ruajt ne fajllin \'keys/"+emri_i_file+".pub.xml\'.");
+		System.out.println("Celesi publik u ruajt ne fajllin \'keys/"+emri_key+".pub.xml\'.");
 	       }
     }
 	    
