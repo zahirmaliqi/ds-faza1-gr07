@@ -41,7 +41,12 @@ public class create-user{
         	System.out.println("Fjalëkalimi duhet të ketë gjatësinë së paku 6 karaktere");
         } else   if (!password.matches(numbers ) && !password.matches(specialChars )){
             System.out.println("Gabim: Fjalekalimi duhet te permbaje se paku nje numer ose simbol.");
-        } 
+        } else if ((password.length() > 5 ) && (password.matches(numbers ) || (password.matches(specialChars )))){
+        	   System.out.print("Perserit fjalkalimin: ");
+               String perserit_passwordin = sc.nextLine(); 
+        if(perserit_passwordin.equals(password)) {
+          File file_password = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+XML_PRIVATE_FILENAME+".txt");
+          file_password.createNewFile();
 
        
         KeyPair keyPair = createKeyPair(KEY_LENGTH);
