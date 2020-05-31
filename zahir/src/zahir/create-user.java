@@ -27,6 +27,21 @@ public class create-user{
 
     public  void file() throws Exception {
         File xmlFile = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+XML_PRIVATE_FILENAME+".pub.xml");
+        if(xmlFile.exists()) {
+                  System.out.println("Gabim: Celesi \'"+XML_PRIVATE_FILENAME +"\' ekziston paraprakisht.");
+        }else {
+            
+        String numbers = "(.*[0-9].*)";  //RegEx per numra
+    	String specialChars = "(.*[,~,!,@,#,$,%,^,&,*,(,),-,_,=,+,[,{,],},|,;,:,<,>,/,?].*$)";//RegEx per spec.karaktere
+    	Scanner sc = new Scanner(System.in); 
+    	
+        System.out.print("Jep fjalkalimin: ");
+        String password = sc.nextLine(); 
+        if( password.length() <= 5 ){
+        	System.out.println("Fjalëkalimi duhet të ketë gjatësinë së paku 6 karaktere");
+        } else   if (!password.matches(numbers ) && !password.matches(specialChars )){
+            System.out.println("Gabim: Fjalekalimi duhet te permbaje se paku nje numer ose simbol.");
+        } 
 
        
         KeyPair keyPair = createKeyPair(KEY_LENGTH);
@@ -34,9 +49,6 @@ public class create-user{
         PublicKey publicKey = keyPair.getPublic();
         
 
-        if(xmlFile.exists()) {
-        	System.out.println("Gabim: Celesi \'"+XML_PRIVATE_FILENAME +"\' ekziston paraprakisht.");
-        }else {
         String privateKeyAsXml = getPrivateKeyAsXml(privateKey);
         System.out.println("Eshte krijuar celesi privat \'keys/" +XML_PRIVATE_FILENAME+".xml\'");
         writeFile(privateKeyAsXml, XML_PRIVATE_FILENAME+".xml");
