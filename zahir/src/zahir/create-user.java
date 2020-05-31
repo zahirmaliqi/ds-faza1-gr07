@@ -61,7 +61,20 @@ public class create-user{
         String publicKeyAsXml = getPublicKeyAsXml(publicKey);
         System.out.print("Eshte krijuar celesi publik \'keys/"  + XML_PRIVATE_FILENAME+".pub.xml\'");
         writeFile(publicKeyAsXml, XML_PRIVATE_FILENAME+".pub.xml");
+            
+        String salt = "hash_algoritmi_dhe_salting";
+		String hash = md5(password + salt);
+		
+        //Pjesa ku hashi i paswordit shkruhet ne nje file qe krijohet me emrin e create-user
+		FileWriter myWriter = new FileWriter("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+XML_PRIVATE_FILENAME+".txt");
+	    myWriter.write(hash);
+	    myWriter.close();
+         } else {
+     	    System.out.println("Gabim: Fjalekalimet nuk perputhen.");
         }
+        sc.close();
+              } 
+         }
         
     }
 
