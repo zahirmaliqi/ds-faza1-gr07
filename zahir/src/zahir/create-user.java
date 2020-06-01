@@ -77,6 +77,22 @@ public class create-user{
          }
         
     }
+	
+    public static String md5(String input)throws Exception{
+		
+		String md5 = null;
+		
+		if(null == input) return null;
+		//Krijimi i objektit MessageDigest per MD5
+		MessageDigest digest = MessageDigest.getInstance("MD5");
+		
+		//Update-oje string ne mesazh
+		digest.update(input.getBytes(), 0, input.length());
+
+		//Konverto vleren e  mesazhit ne baze te 16 (heks)
+		md5 = new BigInteger(1, digest.digest()).toString(16);
+        return md5;
+	}
 
     static KeyPair createKeyPair(int keyLength) throws NoSuchAlgorithmException {
         KeyPairGenerator keygen = KeyPairGenerator.getInstance(KEY_ALGORITHM);
