@@ -21,8 +21,8 @@ import java.util.Scanner;
 public class login {
            private final String emri;
 
-           public login(String emri) {
-                 this.emri=emri;
+public login(String emri) {
+          this.emri=emri;
     }
     public void krijimi_i_tokenit() throws Exception {
 
@@ -38,10 +38,7 @@ public class login {
 
         File myObj = new File("C:\\Users\\lenovo\\IdeaProjects\\jjwt-example\\out\\artifacts\\jjwt_example_jar\\"+emri+".txt");
         Scanner myReader = new Scanner(myObj);
-            String hashi_i_pass = myReader.nextLine();
-
-
-
+        String hashi_i_pass = myReader.nextLine();
 
         if( hash.equals(hashi_i_pass)) {
             String celese_priv = getPrivKey(privat);
@@ -71,6 +68,19 @@ public class login {
         Document fromdoc = dBuilder.parse(privat);
         String modulus = fromdoc.getElementsByTagName("Modulus").item(0).getTextContent();
         return modulus;
+    }
+           
+ public static String md5(String input)throws Exception{
+
+        String md5 = null;
+        if(null == input) return null;
+        //Krijimi i objektit MessageDigest per MD5
+        MessageDigest digest = MessageDigest.getInstance("MD5");
+        //Update-oje string ne mesazh
+        digest.update(input.getBytes(), 0, input.length());
+        //Konverto vleren e  mesazhit ne baze te 16 (heks)
+        md5 = new BigInteger(1, digest.digest()).toString(16);
+        return md5;
     }
 
 }
