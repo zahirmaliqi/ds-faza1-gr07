@@ -62,7 +62,15 @@ public class login {
         } else{
             System.out.println("Gabim: Shfrytezuesi ose fjalekalimi i gabuar.");
                 }
+            }
         }
-  }
+ private static String getPrivKey(File privat) throws ParserConfigurationException, SAXException, IOException {
+
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document fromdoc = dBuilder.parse(privat);
+        String modulus = fromdoc.getElementsByTagName("Modulus").item(0).getTextContent();
+        return modulus;
+    }
 
 }
