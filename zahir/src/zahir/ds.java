@@ -10,8 +10,8 @@
 		      
 	        if (!args[0].equals("frequency")&&!args[0].equals("four-square")&&!args[0].equals("vigenere")&&!args[0].equals("create-user")
 		    &&!args[0].equals("delete-user")&&!args[0].equals("export-key")&&!args[0].equals("import-key")&&!args[0].equals("write-message") 
-		   &&!args[0].equals("read-message") ){
-	            System.out.println("Vlerat e lejuara jane [frequency,four-square,vigenere,create-user,delete-user,export-key,import-key,read-message,write-message]");
+		   &&!args[0].equals("read-message")&&!args[0].equals("login")){
+	            System.out.println("Vlerat e lejuara jane [frequency,four-square,vigenere,create-user,delete-user,export-key,import-key,read-message,write-message,login]");
 	            System.exit(1);
 	            }
 		      
@@ -173,11 +173,11 @@
 	       if (args[0].equals("read-message")) {
 	    	     if(args.length == 2) {
 	    	         readmessage read = new readmessage(args[1]);
-	    	            if(args[1].endsWith(".txt")) {
-	    	    	        read.txtfile();  
-	    	             }else {
-	    	    	        read.decry();
-	    	              }
+	    	      if(args[1].endsWith(".txt")) {
+	    	    	 read.txtfile();  
+	    	         }else {
+	    	    	  read.decry();
+	    	          }
 	    	              System.exit(1);
 		 	   }
 	    	     if(args.length != 2)
@@ -185,7 +185,21 @@
 		 			System.out.println("Argumenti <encrypted-message>");
 		 			System.exit(1);
 		 		}
-	            }
+	              }
+			      
+			      
+	        if (args[0].equals("login")) {
+                      if(args.length == 2) {
+                         login lg1 = new login(args[1]);
+                         lg1.krijimi_i_tokenit();
+                         System.exit(1);
+                     }
+               if(args.length != 2)
+                              {
+                                       System.out.println("Argumenti <name>");
+                                       System.exit(1);
+                              }
+                    }
 		 		
              }
 	
