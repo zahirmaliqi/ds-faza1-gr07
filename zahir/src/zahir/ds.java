@@ -10,8 +10,8 @@
 		      
 	        if (!args[0].equals("frequency")&&!args[0].equals("four-square")&&!args[0].equals("vigenere")&&!args[0].equals("create-user")
 		    &&!args[0].equals("delete-user")&&!args[0].equals("export-key")&&!args[0].equals("import-key")&&!args[0].equals("write-message") 
-		   &&!args[0].equals("read-message")&&!args[0].equals("login")){
-	            System.out.println("Vlerat e lejuara jane [frequency,four-square,vigenere,create-user,delete-user,export-key,import-key,read-message,write-message,login]");
+		   &&!args[0].equals("read-message")&&!args[0].equals("login")&&!args[0].equals("status")){
+	            System.out.println("Vlerat e lejuara jane [frequency,four-square,vigenere,create-user,delete-user,export-key,import-key,read-message,write-message,login,status]");
 	            System.exit(1);
 	            }
 		      
@@ -200,7 +200,20 @@
                                        System.exit(1);
                               }
                     }
+			      
+	       if (args[0].equals("status")) {
+                      if(args.length == 2) {
+                           status st1 = new status(args[1]);
+                           st1.info_rreth_tokenit();
+                           System.exit(1);
+                        }
+               if(args.length != 2)
+                               {
+                                       System.out.println("Argumenti <tokeni>");
+                                       System.exit(1);
+                               }
+                     }
 		 		
-             }
+            }
 	
    }
