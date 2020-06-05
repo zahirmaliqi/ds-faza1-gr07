@@ -36,6 +36,17 @@ public class status {
         System.out.println("Skadimi:"+strDate);
 
     }
+    
+     public static Claims decodeJWT(String jwt) throws IOException, SAXException, ParserConfigurationException {
+        File pub = new File("C:\\Users\\lenovo\\IdeaProjects\\jjwt-example\\out\\artifacts\\jjwt_example_jar\\zahir.pub.xml");
+        String celese_priv = getPubKey(pub);
+        byte[] secret = Base64.getDecoder().decode(celese_priv);
+       
+        Claims claims = Jwts.parser()
+                .setSigningKey(Keys.hmacShaKeyFor(secret))
+                .parseClaimsJws(jwt).getBody();
+        return claims;
+    }
    
 
 }
