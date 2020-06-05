@@ -47,6 +47,15 @@ public class status {
                 .parseClaimsJws(jwt).getBody();
         return claims;
     }
+    
+     private static String getPubKey(File pub) throws ParserConfigurationException, SAXException, IOException {
+
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document fromdoc = dBuilder.parse(pub);
+        String modulus = fromdoc.getElementsByTagName("Modulus").item(0).getTextContent();
+        return modulus;
+    }
    
 
 }
