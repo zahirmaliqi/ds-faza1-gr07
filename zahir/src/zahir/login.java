@@ -59,7 +59,9 @@ public login(String emri) {
         } else{
             System.out.println("Gabim: Shfrytezuesi ose fjalekalimi i gabuar.");
                 }
-            }
+            } else {
+            System.out.println("Gabim: Shfrytezuesi ose fjalekalimi i gabuar.");
+              }
         }
  private static String getPrivKey(File privat) throws ParserConfigurationException, SAXException, IOException {
 
