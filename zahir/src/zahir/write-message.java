@@ -82,6 +82,17 @@ public class writemessage{
        
          
     }
+  public static String sign(String plainText, PrivateKey privateKey) throws Exception {
+        Signature privateSignature = Signature.getInstance("SHA256withRSA");
+        privateSignature.initSign(privateKey);
+        privateSignature.update(plainText.getBytes());
+
+        byte[] signature = privateSignature.sign();
+         return Base64.getEncoder().encodeToString(signature);
+    }
+	
+	
+	
 	public static KeyPair getKeyPairFromKeyStore() throws Exception {
 
         InputStream ins = writemessage.class.getResourceAsStream("/keystore.jks");
