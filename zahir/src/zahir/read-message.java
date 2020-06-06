@@ -24,7 +24,7 @@ import javax.crypto.spec.DESKeySpec;
 	
 	
   public void decry() throws Exception {
-	  String str1 = mesazhi.replace(".", ",");
+      String str1 = mesazhi.replace(".", ",");
       String[] parts = str1.split(",");
       String part1 = parts[0]; 
       String part2 = parts[1];
@@ -32,16 +32,16 @@ import javax.crypto.spec.DESKeySpec;
       String decodedString = new String(decodedBytes);
       File xmlFile = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+decodedString+".xml");
       if(xmlFile.exists()) {
-      
-   
-      File myObj = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+decodedString+".txt");
-      Scanner myReader = new Scanner(myObj);
-      while (myReader.hasNextLine()) {
-        String data = myReader.nextLine();
+    
+        String data = mesazhi;
         String fjla = data.replace(".", ",");
         String[] p = fjla.split(",");
+	int size=p.length;
+	      
+        if (size==4) {
         String p1 = p[0]; 
-        String p4=p[3];
+	String p2 = p[1];
+        String p4 = p[3];
         
   
         byte[] decodedBytes1 = Base64.getDecoder().decode(p1);
@@ -51,7 +51,7 @@ import javax.crypto.spec.DESKeySpec;
 	//byte[] randomBytes1 = new byte[8];
 	//random1.nextBytes(randomBytes1);
 	//String key1= Base64.getUrlEncoder().encodeToString(randomBytes1);
-	String key1 = "zahirzah";
+	String key1 = p2;
 	String ciphertext = encrypt(key1,p4);
         String plaintext = decrypt(key1, p4);
         String decrypted = decrypt(key1, ciphertext.trim());
@@ -59,14 +59,52 @@ import javax.crypto.spec.DESKeySpec;
         if (ciphertext.contentEquals(encrypted.trim())) {
         	System.out.println("Mesazhi:"+plaintext);
         } else {
-            System.out.println("wrong key!");
-        }
-        
-         
-  
-      }
-      }else {
-	  System.out.println("Gabim: Celesi privat \'"+decodedString+".xml \' nuk ekziston");}
+            System.out.println("Celes i gabuar !");
+        } else if (size==6) {
+		    String p1 = p[0];
+                    String p2 = p[1];
+                    String p4 = p[3];
+                    String ecodesender=p[4];
+
+
+                    byte[] decodedBytes1 = Base64.getDecoder().decode(p1);
+                    String decodedString1 = new String(decodedBytes1);
+                    byte[] encodesender= Base64.getDecoder().decode(ecodesender);
+                    String encoder_sender_name = new String(encodesender);
+                    System.out.println("Marresi:" + decodedString1);
+                    //Random random1 = ThreadLocalRandom.current();
+                    //byte[] randomBytes1 = new byte[8];
+                    //random1.nextBytes(randomBytes1);
+                    //String key1= Base64.getUrlEncoder().encodeToString(randomBytes1);
+                    String key1 = p2;
+                    String ciphertext = encrypt(key1, p4);
+                    String plaintext = decrypt(key1, p4);
+                    String decrypted = decrypt(key1, ciphertext.trim());
+                    String encrypted = encrypt(key1, decrypted.trim());
+                    if (ciphertext.contentEquals(encrypted.trim())) {
+                        System.out.println("Mesazhi:" + plaintext);
+                    } else {
+                        System.out.println("Celes i gabuar !");
+                    }
+                    
+		    System.out.println("Derguesi: "+encoder_sender_name );
+                    KeyPair pair = generateKeyPair();
+
+		
+                    String signature = sign(encrypted, pair.getPrivate());
+
+                    //Verifikojme nenshkrimin
+                    boolean isCorrect = verify(encrypted, signature, pair.getPublic());
+                    if(isCorrect == true) {
+                        System.out.println("Nenshkrimi: valid");
+                    }else 
+		    {
+			    System.out.println("Nenshkrim jo valid");
+		    }
+              }
+        }else {
+	  System.out.println("Gabim: Celesi privat \'"+decodedString+".xml \' nuk ekziston");
+	}
   }
 		
 		
