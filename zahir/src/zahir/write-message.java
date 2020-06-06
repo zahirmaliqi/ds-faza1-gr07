@@ -67,9 +67,13 @@ public class writemessage{
 	String xml2String = sb.toString();
         xml2String = xml2String.replaceAll("\\<.*?\\>", "");
         bufReader.close();
+	KeyPair pair = generateKeyPair();
+        
+	//Des Message nenshkruhet me celesin private 
+	String signature = sign(encrypted, pair.getPrivate());
    
         //String zahir=encodedString;
-        String zahir=encodedString+"."+encoded+"."+ xml2String+"."+encrypted + "."+encodeSender;
+        String zahir=encodedString+"."+encoded+"."+ xml2String+"."+encrypted + "."+encodeSender+"."+signature;
         
         System.out.print(zahir);
      	}else {
@@ -78,6 +82,25 @@ public class writemessage{
        
          
     }
+	public static KeyPair getKeyPairFromKeyStore() throws Exception {
+
+        InputStream ins = writemessage.class.getResourceAsStream("/keystore.jks");
+
+        KeyStore keyStore = KeyStore.getInstance("JCEKS");
+        keyStore.load(ins, "s3cr3t".toCharArray());
+        KeyStore.PasswordProtection keyPassword =
+                new KeyStore.PasswordProtection("s3cr3t".toCharArray());
+
+        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("mykey", keyPassword);
+
+        java.security.cert.Certificate cert = keyStore.getCertificate("mykey");
+        PublicKey publicKey = cert.getPublicKey();
+        PrivateKey privateKey = privateKeyEntry.getPrivateKey();
+
+        return new KeyPair(publicKey, privateKey);
+    }
+	
+
 	
 	public void ruaje() throws Exception{
     	String originalInput = emri_i_perdoruesit;
@@ -143,6 +166,16 @@ public class writemessage{
 	        byte[] dataBytesDecrypted = (cipher.doFinal(dataBytes));
 	        return new String(dataBytesDecrypted);
 	    }
+	
+	public static KeyPair generateKeyPair() throws Exception {
+        KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+        generator.initialize(1024, new SecureRandom());
+        KeyPair pair = generator.generateKeyPair();
+
+        return pair;
+    }
+
+	
  
 }
 		
