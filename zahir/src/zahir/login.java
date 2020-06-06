@@ -29,8 +29,11 @@ public login(String emri) {
         File privat = new File("C:\\Users\\lenovo\\IdeaProjects\\jjwt-example\\out\\artifacts\\jjwt_example_jar\\"+emri+".xml");
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Jep fjalkalimin: ");
-        String password = sc.nextLine();
+         java.io.Console console = System.console();
+        //System.out.print("Jep fjalkalimin: ");
+        //String password = sc.nextLine();
+         String password = new String(console.readPassword("Jep fjalkalimin: "));
+
 
         if (privat.exists()){
         String salt = "hash_algoritmi_dhe_salting";
