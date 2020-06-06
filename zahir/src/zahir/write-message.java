@@ -22,18 +22,25 @@ public class writemessage{
     private final String emri_i_perdoruesit;
     private final String text;
     private final String file;
+    private final String sender;
+    private final String token;
 
     
-    public writemessage(String emri_i_perdoruesit, String text, String file) {
+    public writemessage(String emri_i_perdoruesit, String text, String file ,String sender,String token) {
     	
         this.emri_i_perdoruesit=emri_i_perdoruesit;
         this.text=text;
 	this.file=file;
+	this.sender=sender;
+        this.token=token;
     }
     public void enc() throws Exception {
     	String originalInput = emri_i_perdoruesit;
     	String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
 	File xmlFile = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+emri_i_perdoruesit+".pub.xml");
+	    
+	String token_sender = sender;
+        String encodeSender = Base64.getEncoder().encodeToString(token_sender.getBytes());
 	    
     	if (xmlFile.exists()) {
     	Random random = ThreadLocalRandom.current();
@@ -62,7 +69,7 @@ public class writemessage{
         bufReader.close();
    
         //String zahir=encodedString;
-        String zahir=encodedString+"."+encoded+"."+ xml2String+"."+encrypted;
+        String zahir=encodedString+"."+encoded+"."+ xml2String+"."+encrypted + "."+encodeSender;
         
         System.out.print(zahir);
      	}else {
