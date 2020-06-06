@@ -150,21 +150,21 @@
 		               }
 			      
 	         if (args[0].equals("write-message")) {
-	    		if (args.length == 3) {
-		 			writemessage Wm=new writemessage(args[1], args[2],null);
+	    		if (args.length == 5) {
+		 			writemessage Wm=new writemessage(args[1], args[2],null,args[3],args[4]);
 		 			Wm.enc();
 		 		        System.exit(1);
 		 		               }
 	    		
-	    		if (args.length == 4) {
-		 			writemessage Wm=new writemessage(args[1], args[2],args[3]);
+	    		if (args.length == 6) {
+		 			writemessage Wm=new writemessage(args[1], args[2],args[3],args[4],args[5]);
 		 			Wm.ruaje();
 		 		        System.exit(1);
 		 		                 }
 	    		
-	    		if(args.length != 4 || args.length != 3)
+	    		if(args.length != 6 || args.length != 5)
 		 		{
-		 			System.out.println("Argumenti <name> <message> [file]");
+		 			System.out.println("Argumenti <name> <message> destinacioni eshte opscional  sender <tokeni>");
 		 			System.exit(1);
 		 		}
 		 	 }
