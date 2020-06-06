@@ -1,4 +1,5 @@
 package zahir;
+import java.io.Console;
 import java.io.File;
 import java.io.PrintWriter;
 import java.math.BigInteger;
@@ -35,15 +36,20 @@ public class create-user{
     	String specialChars = "(.*[,~,!,@,#,$,%,^,&,*,(,),-,_,=,+,[,{,],},|,;,:,<,>,/,?].*$)";//RegEx per spec.karaktere
     	Scanner sc = new Scanner(System.in); 
     	
-        System.out.print("Jep fjalkalimin: ");
-        String password = sc.nextLine(); 
-        if( password.length() <= 5 ){
+	java.io.Console console = System.console();
+       // System.out.print("Jep fjalkalimin: ");
+       //String password = sc.nextLine(); 
+	String password = new String(console.readPassword("Jep fjalkalimin: "));
+        
+	
+	if( password.length() <= 5 ){
         	System.out.println("Fjalëkalimi duhet të ketë gjatësinë së paku 6 karaktere");
         } else   if (!password.matches(numbers ) && !password.matches(specialChars )){
             System.out.println("Gabim: Fjalekalimi duhet te permbaje se paku nje numer ose simbol.");
         } else if ((password.length() > 5 ) && (password.matches(numbers ) || (password.matches(specialChars )))){
-        	   System.out.print("Perserit fjalkalimin: ");
-               String perserit_passwordin = sc.nextLine(); 
+               //System.out.print("Perserit fjalkalimin: ");
+               //String perserit_passwordin = sc.nextLine(); 
+	String perserit_passwordin = new String(console.readPassword("Perserit fjalekalimin: "));
         if(perserit_passwordin.equals(password)) {
           File file_password = new File("C:\\Users\\lenovo\\eclipse-workspace\\final\\"+XML_PRIVATE_FILENAME+".txt");
           file_password.createNewFile();
