@@ -200,4 +200,13 @@ import javax.crypto.spec.DESKeySpec;
 
         return Base64.getEncoder().encodeToString(signature);
     }
+	      public static boolean verify(String plainText, String signature, PublicKey publicKey) throws Exception {
+        Signature publicSignature = Signature.getInstance("SHA256withRSA");
+        publicSignature.initVerify(publicKey);
+        publicSignature.update(plainText.getBytes());
+
+        byte[] signatureBytes = Base64.getDecoder().decode(signature);
+
+        return publicSignature.verify(signatureBytes);
+    }
 }
