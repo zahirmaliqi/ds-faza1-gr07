@@ -167,4 +167,11 @@ import javax.crypto.spec.DESKeySpec;
       byte[] dataBytesDecrypted = (cipher.doFinal(dataBytes));
       return new String(dataBytesDecrypted);
   }
+	  public static KeyPair generateKeyPair() throws Exception {
+        KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+        generator.initialize(1024, new SecureRandom());
+        KeyPair pair = generator.generateKeyPair();
+
+        return pair;
+    }
 }
