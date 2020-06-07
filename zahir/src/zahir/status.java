@@ -25,6 +25,8 @@ public class status {
     public void info_rreth_tokenit() throws Exception {
         decodeJWT(tokeni);
         System.out.println( "User :"+decodeJWT(tokeni).getSubject());
+          String token1 = decodeJWT(tokeni).getSubject();
+            File shiko_nese_ekz = new File("C:\\Users\\lenovo\\IdeaProjects\\jjwt-example\\out\\artifacts\\jjwt_example_jar\\" + token1 + ".xml");
        Date d1=decodeJWT(tokeni).getExpiration();
         java.util.Date date=new java.util.Date();
         if (shiko_nese_ekz.exists()) {
