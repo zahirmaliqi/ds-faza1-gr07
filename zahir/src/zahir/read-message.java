@@ -89,8 +89,9 @@ import javax.crypto.spec.DESKeySpec;
                     
 		    System.out.println("Derguesi: "+encoder_sender_name );
                     KeyPair pair = generateKeyPair();
-
+		    File check_celesin_publik = new File("C:\\Users\\lenovo\\IdeaProjects\\jjwt-example\\out\\artifacts\\jjwt_example_jar\\"+encoder_sender_name+".xml");
 		
+                    if (check_celesin_publik.exists()) {
                     String signature = sign(encrypted, pair.getPrivate());
 
                     //Verifikojme nenshkrimin
@@ -101,11 +102,16 @@ import javax.crypto.spec.DESKeySpec;
 		    {
 			    System.out.println("Nenshkrim jo valid");
 		    }
-              }
+              }else {
+                        System.out.println("Nenshkrimi: mungon celesi publik \'"+encoder_sender_name+"\'");
+                    }
+
+
+                }
         }else {
-	  System.out.println("Gabim: Celesi privat \'"+decodedString+".xml \' nuk ekziston");
-	}
-  }
+            System.out.println("Gabim: Celesi privat \'"+decodedString+".xml \' nuk ekziston");
+        }
+    }
 		
 		
       public void txtfile() throws Exception{
