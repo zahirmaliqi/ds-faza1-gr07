@@ -174,4 +174,21 @@ import javax.crypto.spec.DESKeySpec;
 
         return pair;
     }
+	  public static KeyPair getKeyPairFromKeyStore() throws Exception {
+       
+        InputStream ins = readmessage.class.getResourceAsStream("/keystore.jks");
+
+        KeyStore keyStore = KeyStore.getInstance("JCEKS");
+        keyStore.load(ins, "s3cr3t".toCharArray());   
+        KeyStore.PasswordProtection keyPassword =      
+                new KeyStore.PasswordProtection("s3cr3t".toCharArray());
+
+        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("mykey", keyPassword);
+
+        java.security.cert.Certificate cert = keyStore.getCertificate("mykey");
+        PublicKey publicKey = cert.getPublicKey();
+        PrivateKey privateKey = privateKeyEntry.getPrivateKey();
+
+        return new KeyPair(publicKey, privateKey);
+    }
 }
