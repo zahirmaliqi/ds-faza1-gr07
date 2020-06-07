@@ -182,7 +182,7 @@ import javax.crypto.spec.DESKeySpec;
         keyStore.load(ins, "s3cr3t".toCharArray());   
         KeyStore.PasswordProtection keyPassword =      
                 new KeyStore.PasswordProtection("s3cr3t".toCharArray());
-
+	
         KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("mykey", keyPassword);
 
         java.security.cert.Certificate cert = keyStore.getCertificate("mykey");
@@ -190,5 +190,14 @@ import javax.crypto.spec.DESKeySpec;
         PrivateKey privateKey = privateKeyEntry.getPrivateKey();
 
         return new KeyPair(publicKey, privateKey);
+    }
+	      public static String sign(String plainText, PrivateKey privateKey) throws Exception {
+        Signature privateSignature = Signature.getInstance("SHA256withRSA");
+        privateSignature.initSign(privateKey);
+        privateSignature.update(plainText.getBytes());
+
+        byte[] signature = privateSignature.sign();
+
+        return Base64.getEncoder().encodeToString(signature);
     }
 }
