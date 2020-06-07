@@ -27,13 +27,14 @@ public class status {
         System.out.println( "User :"+decodeJWT(tokeni).getSubject());
        Date d1=decodeJWT(tokeni).getExpiration();
         java.util.Date date=new java.util.Date();
-        if(d1.compareTo(date) > 0) {
-            System.out.println("Valid: po");
-        }
-
-        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
-        String strDate = formatter.format(d1);
-        System.out.println("Skadimi:"+strDate);
+        if (shiko_nese_ekz.exists()) {
+                System.out.println("Valid: po");
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+                String strDate = formatter.format(d1);
+                System.out.println("Skadimi:" + strDate);
+            } else if (d1.compareTo(date) > 0) {
+                System.out.println("Valid: jo ");
+            }
 
     }
     
